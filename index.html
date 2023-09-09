@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloud Services</title>
+  </head>
+  <body>
+    <!-- <div id="app"></div> -->
+    <!-- <script type="module" src="/main.js"></script> -->
+
+
+
+    <div style="margin:0 auto; width:500px; margin-top:200px">
+      <div id="paypal-button-container-P-74378494KU2881535MT6OLWI"></div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=AWczceu6x8tCWHtzBoy1ab4cb1yy6rjUrdXAbYdBdpAwymcRN4FhYe3NmLrqyK2e0CQlk43oa5NECZMk&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+    <script>
+      paypal.Buttons({
+          style: {
+              shape: 'rect',
+              color: 'gold',
+              layout: 'vertical',
+              label: 'subscribe'
+          },
+          createSubscription: function(data, actions) {
+            return actions.subscription.create({
+              /* Creates the subscription */
+              plan_id: 'P-74378494KU2881535MT6OLWI'
+            });
+          },
+          onApprove: function(data, actions) {
+            alert(data.subscriptionID); // You can add optional success message for the subscriber here
+          }
+      }).render('#paypal-button-container-P-74378494KU2881535MT6OLWI'); // Renders the PayPal button
+    </script>
+  </body>
+</html>
